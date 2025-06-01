@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import HeadingText from '../../components/home/HeadingText'
 
 const VideoLibraryScreen = () => {
   return (
-    <View>
-      <Text>VideoLibraryScreen</Text>
-    </View>
+       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+       <HeadingText text='VideoLibraryScreen' />
+     </View>
   )
 }
 

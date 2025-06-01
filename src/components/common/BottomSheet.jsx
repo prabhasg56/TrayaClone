@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-end',
     },
     modalContainer: {
+        maxHeight: '80%',
         backgroundColor: "white",
         borderTopLeftRadius: 12,
         borderTopRightRadius: 12,
@@ -112,6 +113,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.5,
         shadowRadius: 4,
         elevation: 5,
+        paddingBottom: 40,
     },
     topCon: {
         flexDirection: 'row',

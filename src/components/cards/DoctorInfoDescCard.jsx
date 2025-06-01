@@ -1,15 +1,18 @@
-import { Alert, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { Alert, Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import { rasDetox } from '../../assets'
 import { primaryColor } from '../../styles/GlobalStyles';
 import BounceTouchable from '../BounceTouchable';
 
-const DoctorInfoCard = (props) => {
-  const { name, title, experience, description, id, avatar, handleOnClick } = props;
+const { width, height } = Dimensions.get('window');
+
+
+const DoctorInfoDescCard = (props) => {
+  const { name, title, experience, description, id, avatar } = props;
 
   return (
-    <BounceTouchable onPress={() => handleOnClick(id)}>
+    <BounceTouchable>
       <View style={styles.doctorCard}>
+        <View style={{flexDirection:'row'}}>
         <Image
           source={{ uri: avatar }}
           style={styles.doctorImage}
@@ -19,17 +22,22 @@ const DoctorInfoCard = (props) => {
           <Text style={styles.doctorTitle}>{title}</Text>
           <Text style={styles.doctorExperience}>{experience}</Text>
         </View>
+        </View>
+        <View style={styles.descriptionBox}>
+          <Text style={styles.description}>
+            {description}
+          </Text>
+        </View>
       </View>
     </BounceTouchable>
   )
 }
 
-export default DoctorInfoCard
+export default DoctorInfoDescCard
 
 const styles = StyleSheet.create({
   doctorCard: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    width:width*0.8,
     borderWidth: 1,
     borderColor: 'lightgray',
     borderRadius: 8,
@@ -58,5 +66,17 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     borderTopWidth: 1,
     borderTopColor: primaryColor,
+  },
+  descriptionBox: {
+    backgroundColor: '#f5f7ef',
+    padding: 15,
+    borderRadius: 10,
+    marginTop:20
+  },
+  description: {
+    fontSize: 15,
+    color: '#333',
+    textAlign: 'justify'
+
   },
 })

@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { rasDetox } from '../../assets';
 import { buttonLightColor } from '../../styles/GlobalStyles';
 import HeadingText from './HeadingText';
 import DoctorInfoCard from '../cards/DoctorInfoCard';
+import BottomSheet from '../common/BottomSheet';
+import DoctorInfoDescCard from '../cards/DoctorInfoDescCard';
 
 const doctorData = [
   {
+    id: 1,
     name: "Dr. Shailendra Chaubey",
     title: "Ayurvedic Practitioner",
     experience: "15 Years",
@@ -16,6 +18,7 @@ const doctorData = [
       "Dr. Shailendra Chaubey is a qualified Ayurvedic Practitioner and a Pancha Karma Consultant, having over 15 years of experience in this field. He has a specialization in treating chronic disorders and runs a Healing school of his own, treating patients using ayurvedic therapies. He also works as a medical officer for a yoga organization for a renowned Yoga Club in Mumbai and has spent years perfecting his preventive hair loss all-natural treatment."
   },
   {
+    id: 2,
     name: "Dr. Anjali Mehra",
     title: "Naturopathy Expert",
     experience: "10 Years",
@@ -24,6 +27,7 @@ const doctorData = [
       "Dr. Anjali Mehra is a well-known Naturopathy Expert with over a decade of experience. She specializes in holistic healing, nutrition therapy, and detoxification. She runs a wellness center in Pune and is committed to promoting natural healing methods for chronic illnesses."
   },
   {
+    id: 3,
     name: "Dr. Rohit Vyas",
     title: "Homeopathy Specialist",
     experience: "12 Years",
@@ -32,6 +36,7 @@ const doctorData = [
       "Dr. Rohit Vyas is an experienced Homeopathy Specialist with a strong background in treating allergies, skin conditions, and autoimmune disorders. Based in Delhi, he combines modern diagnostic tools with traditional homeopathic remedies for effective results."
   },
   {
+    id: 4,
     name: "Dr. Neeta Deshpande",
     title: "Ayurveda & Yoga Consultant",
     experience: "18 Years",
@@ -40,6 +45,7 @@ const doctorData = [
       "With 18 years of experience, Dr. Neeta Deshpande is an accomplished Ayurveda and Yoga Consultant. She integrates customized yoga plans with traditional Ayurvedic treatments to address lifestyle disorders, stress, and hormonal imbalances."
   },
   {
+    id: 5,
     name: "Dr. Arvind Kumar",
     title: "Siddha Medicine Practitioner",
     avatar: "https://i.pravatar.cc/150?img=14",
@@ -52,6 +58,16 @@ const doctorData = [
 
 const HelpSection = (props) => {
   const { navigation } = props;
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleOnClick = () => {
+    setIsModalVisible(true)
+  }
+
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+  }
+
 
   return (
     <View style={styles.container}>
@@ -94,10 +110,26 @@ const HelpSection = (props) => {
         data={doctorData}
         horizontal
         keyExtractor={(item, index) => index.toString()}
-        renderItem={({ item }) => <DoctorInfoCard {...item} />}
+        renderItem={({ item }) => <DoctorInfoCard {...item} handleOnClick={handleOnClick} />}
         showsHorizontalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
       />
+
+      <BottomSheet
+        visible={isModalVisible}
+        onClose={() => handleModalClose()}
+      >
+
+        <FlatList
+          data={doctorData}
+          horizontal
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => <DoctorInfoDescCard {...item} />}
+          showsHorizontalScrollIndicator={false}
+          ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
+        />
+
+      </BottomSheet>
     </View>
   );
 };
