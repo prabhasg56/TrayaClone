@@ -33,7 +33,7 @@ const GrowthJourneyCard = () => (
         <Card mode="outlined" style={styles.card}>
             <Card.Content>
                 {/* vertical line */}
-                <View style={styles.line} />
+                {/* <View style={styles.line} /> */}
 
                 {journeySteps.map((step, idx) => (
                     <View key={step.id} style={styles.stepRow}>
@@ -69,9 +69,10 @@ const styles = StyleSheet.create({
         marginBottom: 12,
     },
     card: {
-        borderRadius: 12,
+        borderRadius: 8,
+        borderColor: 'lightgray',
         overflow: 'hidden',
-        backgroundColor:'#fff'
+        backgroundColor:'#fff',
     },
     line: {
         position: 'absolute',

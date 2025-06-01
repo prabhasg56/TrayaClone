@@ -6,6 +6,7 @@ import HomeScreen from '../screens/Home/HomeScreen';
 import MyKitScreen from '../screens/MyKit/MyKitScreen';
 import VideoLibraryScreen from '../screens/Videos/VideoLibraryScreen';
 import ProfileScreen from '../screens/Profile/ProfileScreen';
+import QuestionScreen from '../screens/GeneralQueries/QuestionScreen';
 
 
 const Stack = createStackNavigator();
@@ -43,12 +44,23 @@ export function ProfileStack() {
     );
 }
 
-
+export function GeneralQueriesStack() {
+    return (
+        <Stack.Navigator initialRouteName='QuestionScreen'>
+            <Stack.Screen name="QuestionScreen" component={QuestionScreen} options={{ headerShown: false }} />
+        </Stack.Navigator>
+    );
+}
 
 const StackRoutes = () => {
     const [initialRoute, setInitialRoute] = useState('BottomTabRoutes');
 
     const routeArray = [
+        {
+            name: "BottomTabRoutes",
+            component: BottomTabRoutes,
+            options: { headerShown: false },
+        },
 
         {
             name: "HomeStack",
@@ -61,12 +73,12 @@ const StackRoutes = () => {
             component: MyKitStack,
             options: { headerShown: false },
         },
+    
         {
-            name: "BottomTabRoutes",
-            component: BottomTabRoutes,
+            name: "GeneralQueriesStack",
+            component: GeneralQueriesStack,
             options: { headerShown: false },
         },
-       
     ]
     return (
         <Stack.Navigator

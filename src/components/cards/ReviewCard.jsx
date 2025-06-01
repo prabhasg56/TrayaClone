@@ -50,16 +50,16 @@ export default ReviewCard;
 const styles = StyleSheet.create({
     reviewCard: {
         width: width * 0.8,
-        marginRight: 16,
+        marginRight: 16, 
         padding: 16,
         backgroundColor: '#fff',
-        borderRadius: 12,
+        borderRadius: 10,
         shadowColor: '#000',
         shadowOpacity: 0.1,
         shadowRadius: 6,
         elevation: 1,
         borderColor: 'lightgray',
-        borderWidth: 1
+        borderWidth: 0.5
     },
     reviewAuthor: {
         fontWeight: 'bold',

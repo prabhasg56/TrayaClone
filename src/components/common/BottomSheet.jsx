@@ -21,7 +21,7 @@ const BottomSheet = ({
     animationType = "slide",
     children,
 }) => {
-    console.log("visible", visible)
+    // console.log("visible", visible)
     return (
         <Modal
             animationType={animationType}
@@ -66,6 +66,7 @@ const BottomSheet = ({
                                                 marginBottom: 2,
                                                 width: "100%",
                                                 borderRadius: 10,
+                                                borderColor: 'lightgray',
                                             }}
                                             onPress={() => onSelectItem(item.value)}
                                         >

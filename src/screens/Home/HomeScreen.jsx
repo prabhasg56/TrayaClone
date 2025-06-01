@@ -22,7 +22,7 @@ import ReviewSection from '../../components/home/ReviewSection.jsx';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
     <ScreenWrapper>
       <View style={styles.container}>
@@ -64,9 +64,10 @@ const HomeScreen = () => {
 
           <AfterPlaceOrder />
 
-          <HelpSection />
+          <HelpSection navigation={navigation}/>
 
           <ReviewSection />
+
           {/* Padding to prevent BottomSection from overlapping last item */}
           <View style={{ height: 80 }} />
         </ScrollView>

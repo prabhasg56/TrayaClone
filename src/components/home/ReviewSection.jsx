@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, Dimensions } from 'react-native';
 import React, { useState } from 'react';
 import ReviewCard from '../cards/ReviewCard';
+import HeadingText from './HeadingText';
 
 const reviews = [
     {
@@ -23,7 +24,8 @@ const reviews = [
 const ReviewSection = () => {
     return (
         <View style={styles.container}>
-            <Text style={styles.sectionTitle}>Google Reviews & Ratings</Text>
+            <HeadingText text={"Google Reviews & Ratings"} style={{marginTop:15}}/>
+
             <View style={styles.ratingCon}>
                 <Text style={styles.ratingTextNum}> 4.6</Text>
                 <View>
@@ -39,7 +41,6 @@ const ReviewSection = () => {
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 snapToAlignment="center"
-                contentContainerStyle={styles.carousel}
                 decelerationRate="fast"
             />
         </View>
@@ -72,8 +73,6 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight:'bold'
     },
-    carousel: {
-        paddingHorizontal: 10,
-    },
+  
 
 });

@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#fff',
     borderRadius: 8,
+    borderColor: 'lightgray',
     padding: 15,
     alignItems: 'center',
     borderWidth: 1,

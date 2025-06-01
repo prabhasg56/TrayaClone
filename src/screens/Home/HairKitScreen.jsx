@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import { Text } from 'react-native-paper';
 import ProductCard from '../../components/cards/ProductCard';
-import { rasDetox } from '../../assets'; 
+import { rasDetox } from '../../assets';
 
 const products = [
     {
@@ -10,7 +10,7 @@ const products = [
         name: 'Nasal Drop',
         price: '₹150',
         description:
-            'Ayurvedic nasal drops for nourishing hair follicles and reducing sleep-related hair loss.',
+            'Ayurvedic nasal drops for nourishing hair follicles and reducing sleep-related hair loss. ',
         ingredients: ['Cow Ghee', 'Yastimadhu', 'Shatavari', 'Jatamansi'],
         image: rasDetox,
     },
@@ -78,12 +78,12 @@ const HairKitScreen = () => {
                 horizontal
                 keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => (
-                    <View style={styles.cardSpacing}>
                         <ProductCard product={item} />
-                    </View>
                 )}
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={styles.listContainer}
+                ItemSeparatorComponent={() => <View style={{ width: 12 }} />}
+
             />
         </View>
     );
@@ -103,10 +103,7 @@ const styles = StyleSheet.create({
     },
     listContainer: {
         paddingHorizontal: 16,
-    },
-    cardSpacing: {
-        marginRight: 12,
-    },
+    }
 });
 
 export default HairKitScreen;

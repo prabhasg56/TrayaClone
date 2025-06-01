@@ -1,65 +1,71 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useRef } from 'react';
+import { StyleSheet, View, Alert } from 'react-native';
 import { Card, Text, Button } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import HeadingText from '../home/HeadingText';
+import BounceTouchable from '../BounceTouchable';
 
-const ChatWithUsCard = () => (
-  <View style={{ marginTop: 24, marginHorizontal:10 }}>
-    <Text style={styles.heading}>Chat With Us</Text>
+const ChatWithUsCard = () => {
 
-    <Card style={styles.card} mode="outlined">
-      <Card.Content style={styles.row}>
-        {/* copy block */}
-        <View style={{ flex: 1 }}>
-          <Text style={styles.title}>Talk to a Hair Coach Now</Text>
-          <Text style={styles.subtitle}>
-            Get all your queries resolved in 15 minutes
-          </Text>
+  const handleWhatsApp = () => {
+    // Implement WhatsApp chat logic here
+  };
 
-          <Button
-            mode="contained-tonal"
-            contentStyle={styles.chatBtnContent}
-            labelStyle={styles.chatBtnLabel}
-            style={styles.chatBtn}
-            icon={({ size, color }) => (
-              <Icon name="whatsapp" size={size} color={color} />
-            )}
-            onPress={() => {
-              // TODO: link to WhatsApp chat (e.g. Linking.openURL('https://wa.me/91XXXXXXXXXX'))
-            }}>
-            Chat Now
-          </Button>
-        </View>
+  return (
+    <View style={{ marginTop: 24, marginHorizontal: 10 }}>
+      <HeadingText text={"Chat With Us"} />
+      <BounceTouchable onPress={()=>Alert.alert("Sorry 😔 wait for this feature!")}>
+        <Card style={styles.card} mode="outlined" >
+          <Card.Content style={styles.row}>
+            <View style={{ flex: 1, flexDirection: 'row', gap: 20 }}>
+              <View>
+                <Text style={styles.title}>Talk to a Hair Coach Now</Text>
+                <Text style={styles.subtitle}>
+                  Get all your queries resolved in 15 minutes
+                </Text>
+              </View>
+              <Icon
+                name="whatsapp"
+                size={64}
+                color="#25D366"
+                style={{ marginLeft: 8 }}
+              />
+            </View>
 
-        {/* WhatsApp logo */}
-        <Icon
-          name="whatsapp"
-          size={64}
-          color="#25D366"
-          style={{ marginLeft: 8 }}
-        />
-      </Card.Content>
-    </Card>
-  </View>
-);
+            <Button
+              mode="contained-tonal"
+              contentStyle={styles.chatBtnContent}
+              labelStyle={styles.chatBtnLabel}
+              style={styles.chatBtn}
+              icon={({ size, color }) => (
+                <Icon name="whatsapp" size={size} color={color} />
+              )}
+              onPress={handleWhatsApp}>
+              Chat Now
+            </Button>
+          </Card.Content>
+        </Card>
+      </BounceTouchable>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  heading: {
-    fontSize: 20,
-    fontWeight: '700',
-    marginBottom: 12,
-  },
   card: {
-    borderRadius: 12,
-    backgroundColor:"#fff"
+    borderRadius: 8,
+    backgroundColor: "#fff",
+    borderColor: 'lightgray', 
   },
   row: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flex: 1
   },
   title: { fontSize: 16, fontWeight: '600' },
   subtitle: { fontSize: 13, color: '#6B7280', marginTop: 4 },
-  chatBtn: { marginTop: 16, borderRadius: 8, alignSelf: 'flex-start' },
+  chatBtn: {
+    marginTop: 16,
+    borderRadius: 8,
+    backgroundColor: '#e0ecac'
+  },
   chatBtnContent: { paddingHorizontal: 24 },
   chatBtnLabel: { fontWeight: '600', color: '#000' },
 });
