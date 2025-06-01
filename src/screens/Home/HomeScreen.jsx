@@ -12,6 +12,12 @@ import { trayaHomeImg } from '../../assets/index.js';
 import GreetingCard from '../../components/cards/GreetingCard.jsx';
 import HairKitScreen from './HairKitScreen.jsx';
 import BottomSection from '../../components/home/BottomSection.jsx';
+import ChatWithUsCard from '../../components/cards/ChatWithUsCard.jsx';
+import GrowthJourneyCard from '../../components/cards/GrowthJourneyCard.jsx';
+import TrayaPlan from '../../components/home/TrayaPlan.jsx';
+import AfterPlaceOrder from '../../components/home/AfterPlaceOrder.jsx';
+import HelpSection from '../../components/home/HelpSection.jsx';
+import ReviewSection from '../../components/home/ReviewSection.jsx';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -52,16 +58,24 @@ const HomeScreen = () => {
           <View style={{ height: 120 }} />
 
           <HairKitScreen />
+          <ChatWithUsCard />
+          <GrowthJourneyCard />
+          <TrayaPlan />
 
+          <AfterPlaceOrder />
+
+          <HelpSection />
+
+          <ReviewSection />
           {/* Padding to prevent BottomSection from overlapping last item */}
-          <View style={{ height: 40 }} />
+          <View style={{ height: 80 }} />
         </ScrollView>
 
         {/* Sticky bottom section */}
         <View style={styles.bottomSticky}>
           <BottomSection totalPrice="₹3164" />
         </View>
-        
+
       </View>
     </ScreenWrapper>
   );
