@@ -42,7 +42,7 @@ const HomeScreen = ({ navigation }) => {
           <ReviewSection />
 
           {/* Padding to prevent BottomSection from overlapping last item */}
-          <View style={{ height: 80 }} />
+          {/* <View style={{ height: 80 }} /> */}
         </ScrollView>
 
         {/* Sticky bottom section */}
