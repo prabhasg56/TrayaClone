@@ -40,7 +40,6 @@ export default function MenuLinks({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 20,
     marginHorizontal: 10
   },
   item: {
