@@ -1,15 +1,27 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import HeadingText from '../../components/home/HeadingText'
+import React from 'react';
+import { View, ScrollView, StyleSheet } from 'react-native';
+import Header from '../../components/profile/Header';
+import HairTestCard from '../../components/cards/HairTestCard';
+import QuickActions from '../../components/profile/QuickActions';
+import MenuLinks from '../../components/profile/MenuLinks';
+import Footer from '../../components/profile/Footer';
 
-const ProfileScreen = () => {
+
+export default function ProfileScreen({navigation}) {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <HeadingText text='ProfileScreen' />
-    </View>
-  )
+    <ScrollView style={styles.container}>
+      <Header username="Prabhas" navigation={navigation} />
+      <HairTestCard  navigation={navigation} />
+      <QuickActions  navigation={navigation}  />
+      <MenuLinks  navigation={navigation} />
+      <Footer />
+    </ScrollView>
+  );
 }
 
-export default ProfileScreen
-
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
+});

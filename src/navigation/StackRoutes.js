@@ -7,6 +7,9 @@ import MyKitScreen from '../screens/MyKit/MyKitScreen';
 import VideoLibraryScreen from '../screens/Videos/VideoLibraryScreen';
 import ProfileScreen from '../screens/Profile/ProfileScreen';
 import QuestionScreen from '../screens/GeneralQueries/QuestionScreen';
+import AllProductScreen from '../screens/AllProducts/AllProductScreen';
+import TermsPolicieScreen from '../screens/TermsPolicies/TermsPolicieScreen';
+import ReadMoreScreen from '../screens/ReadMore/ReadMoreScreen';
 
 
 const Stack = createStackNavigator();
@@ -52,6 +55,30 @@ export function GeneralQueriesStack() {
     );
 }
 
+export function AllProductStack() {
+    return (
+        <Stack.Navigator initialRouteName='AllProductScreen'>
+            <Stack.Screen name="AllProductScreen" component={AllProductScreen} options={{ headerShown: false }} />
+        </Stack.Navigator>
+    );
+}
+
+export function TermsPolicieStack() {
+    return (
+        <Stack.Navigator initialRouteName='TermsPolicieScreen'>
+            <Stack.Screen name="TermsPolicieScreen" component={TermsPolicieScreen} options={{ headerShown: false }} />
+        </Stack.Navigator>
+    );
+}
+
+export function ReadMoreStack() {
+    return (
+        <Stack.Navigator initialRouteName='ReadMoreScreen'>
+            <Stack.Screen name="ReadMoreScreen" component={ReadMoreScreen} options={{ headerShown: false }} />
+        </Stack.Navigator>
+    );
+}
+
 const StackRoutes = () => {
     const [initialRoute, setInitialRoute] = useState('BottomTabRoutes');
 
@@ -77,6 +104,22 @@ const StackRoutes = () => {
         {
             name: "GeneralQueriesStack",
             component: GeneralQueriesStack,
+            options: { headerShown: false },
+        },
+
+        {
+            name: "AllProductStack",
+            component: AllProductStack,
+            options: { headerShown: false },
+        },
+        {
+            name: "TermsPolicieStack",
+            component: TermsPolicieStack,
+            options: { headerShown: false },
+        },
+        {
+            name: "ReadMoreStack",
+            component: ReadMoreStack,
             options: { headerShown: false },
         },
     ]
