@@ -23,9 +23,9 @@ const ReviewCard = ({ review }) => {
             >
                 <Text style={styles.reviewAuthor}>{review.author}</Text>
                 <Text style={styles.stars}>{'⭐'.repeat(review.rating)}</Text>
-                <Text style={styles.reviewText}>
-                    {review.text?.length > 120 ? `${preview}...` : review.text}
-                    <Text style={styles.readMore}>{review.text?.length > 120 ? 'Read More' : ''}</Text>
+                <Text numberOfLines={2} style={styles.reviewText}>
+                    {review.text?.length > 400 ? `${preview}...` : review.text}
+                    <Text style={styles.readMore}>{review.text?.length > 400 ? 'Read More' : ''}</Text>
                 </Text>
             </TouchableOpacity>
 
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
     reviewText: {
         marginTop: 8,
         color: '#333',
+
     },
     readMore: {
         color: '#6ba539',

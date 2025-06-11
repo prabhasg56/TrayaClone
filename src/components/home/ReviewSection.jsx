@@ -7,7 +7,7 @@ const reviews = [
     {
         author: 'Bilal Ahmed Shah',
         rating: 5,
-        text: 'My friends used to tease me all the time about hair loss but now I am glad that my hair is full. I feel much more confident and proud of my appearance every day!',
+        text: 'My friends used to tease me all the time about hair loss but now I am glad that my hair is full. I feel much more confident and proud of my appearance every day!, My friends used to tease me all the time about hair loss but now I am glad that my hair ',
     },
     {
         author: 'Rohit Mehta',
@@ -20,6 +20,7 @@ const reviews = [
         text: 'I love the personalized approach. My hair is visibly thicker!',
     },
 ];
+
 
 const ReviewSection = () => {
     return (
